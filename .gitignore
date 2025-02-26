@@ -5,7 +5,7 @@
 /public/storage
 /storage/*.key
 /storage/pail
-.env
+# .env
 .env.backup
 .env.production
 .phpactor.json

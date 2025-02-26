@@ -1,49 +1,49 @@
+version: "3.8"
+
 services:
   app:
     build: ./.docker
-    container_name: app
+    container_name: ${APP_CONTAINER_NAME}
     volumes:
       - .:/app
       - ~/.gitconfig:/home/ubuntu/.gitconfig
       - ~/.git-credentials:/home/ubuntu/.git-credentials
       - ~/.bash_aliases:/home/ubuntu/.bash_aliases
     networks:
-      - devstation_network
+      - ${NETWORK_NAME}
 
   mariadb:
-    image: mariadb:11.4.5
-    container_name: mariadb-dev
+    image: mariadb:${MARIADB_IMAGE_VERSION}
+    container_name: ${MARIADB_CONTAINER_NAME}
     environment:
-      MYSQL_DATABASE: devstation
-      MYSQL_USER: devstation
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: moztopia_secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "3306:3306"
+      - "${MARIADB_PORT}:${MARIADB_PORT}"
     networks:
-      - devstation_network
+      - ${NETWORK_NAME}
     volumes:
       - ./.docker/mariadb/data:/var/lib/mysql
 
   nginx:
-    container_name: nginx-dev
+    container_name: ${NGINX_CONTAINER_NAME}
     build:
       context: ./.docker/nginx
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "${NGINX_PORT}:${NGINX_PORT}"
     networks:
-      - devstation_network
+      - ${NETWORK_NAME}
 
   redis:
-    image: redis:7.4
-    container_name: redis-dev
+    image: redis:${REDIS_IMAGE_VERSION}
+    container_name: ${REDIS_CONTAINER_NAME}
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:${REDIS_PORT}"
     networks:
-      - devstation_network
+      - ${NETWORK_NAME}
     volumes:
       - ./.docker/redis/data:/data
 
