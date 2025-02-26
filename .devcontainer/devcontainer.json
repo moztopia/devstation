@@ -1,0 +1,31 @@
+{
+  "name": "Full Stack Dev Container",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.js-debug",
+        "laravel.vscode-laravel",
+        "cweijan.vscode-database-client2",
+        "cweijan.dbclient-jdbc",
+        "donjayamanne.githistory",
+        "github.vscode-github-actions",
+        "ms-vscode.makefile-tools",
+        "xdebug.php-debug",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  },
+  "forwardPorts": [3000, 8000, 9000],
+  "remoteUser": "ubuntu"
+}

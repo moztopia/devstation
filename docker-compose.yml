@@ -1,0 +1,52 @@
+services:
+  app:
+    build: ./.docker
+    container_name: app
+    volumes:
+      - .:/app
+      - ~/.gitconfig:/home/ubuntu/.gitconfig
+      - ~/.git-credentials:/home/ubuntu/.git-credentials
+      - ~/.bash_aliases:/home/ubuntu/.bash_aliases
+    networks:
+      - jeeves_network
+
+  mariadb:
+    image: mariadb:11.4.5
+    container_name: mariadb-dev
+    environment:
+      MYSQL_DATABASE: jeeves
+      MYSQL_USER: jeeves
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - jeeves_network
+    volumes:
+      - ./.docker/mariadb/data:/var/lib/mysql
+
+  nginx:
+    container_name: nginx-dev
+    build:
+      context: ./.docker/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - jeeves_network
+
+  redis:
+    image: redis:7.4
+    container_name: redis-dev
+    ports:
+      - "6379:6379"
+    networks:
+      - jeeves_network
+    volumes:
+      - ./.docker/redis/data:/data
+
+networks:
+  jeeves_network:
+    driver: bridge

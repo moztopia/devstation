@@ -1,0 +1,36 @@
+name: "Task"
+description: "Use this template to create a new Task"
+title: "[TASK] <short description>"
+labels: ["task"]
+assignees: ["<your_github_username>"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to document tasks that need to be done.
+  - type: textarea
+    id: description
+    attributes:
+      label: "Task Description"
+      description: "Describe the task that needs to be done."
+      placeholder: "This task needs this to be completed..."
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to complete"
+      description: "List the steps needed to complete this task."
+      placeholder: |
+        1. First do this
+        2. Then do that
+        3. Finally do this
+      render: markdown
+  - type: textarea
+    id: due_date
+    attributes:
+      label: "Due Date (Optional)"
+      description: "If there is a due date for this task, list it here"
+      placeholder: "YYYY-MM-DD"
+      render: markdown

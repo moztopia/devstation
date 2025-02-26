@@ -1,0 +1,49 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+/.fleet
+/.idea
+/.nova
+/.zed
+
+/.pnpm-store
+
+install
+
+# Laravel Vendor Files
+
+/vendor
+
+# Docker Configuration
+
+## Preserve folders that might be empty
+
+!.docker/
+!.docker/mysql/data/
+!.docker/redis/data/
+
+## Ignore the data folders
+
+.docker/mysql/data/*
+.docker/redis/data/*
+
+# GitHub Configuration
+
+!.github/*
+
+# VSCode Configuration
+
+.vscode

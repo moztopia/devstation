@@ -1,0 +1,45 @@
+name: "Feature Request"
+description: "Suggest a new feature for the application."
+title: "[FEATURE] <short description>"
+labels: ["feature request"]
+assignees: ["<your_github_username>"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature for this project!
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: "Feature Description"
+      description: "Describe the feature you are requesting, and what problem it would solve."
+      placeholder: "This would add this, which would improve this..."
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: use_cases
+    attributes:
+      label: "Use Cases"
+      description: "Describe how this feature would be used and what problem is it solving?"
+      placeholder: |
+        As a ...
+        I want to ...
+        So that ...
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "Benefits"
+      description: "What are the benefits of this new feature?"
+      placeholder: "Increased this, decreased that, helps the user do this, etc..."
+      render: markdown
+  - type: textarea
+    id: alternative
+    attributes:
+      label: "Media Uploads"
+      description: "Do you have any images our data output to help understand this feature?"
+      placeholder: "Paste images and other data here ..."
+      render: markdown

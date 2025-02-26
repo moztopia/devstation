@@ -1,0 +1,54 @@
+name: "Bug Report"
+description: "Report a bug in the application."
+title: "[BUG] <short description>"
+labels: ["bug"]
+assignees: ["<your_github_username>"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue with this project!
+  - type: textarea
+    id: description
+    attributes:
+      label: "Detailed Description"
+      description: "Describe what the bug is and what you expected to happen."
+      placeholder: "I was expecting this, but this happened instead..."
+      value: "What is happening or not working as expected?"
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to Reproduce"
+      description: "List the steps to reproduce the issue"
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected behavior"
+      description: "What was the expected behavior?"
+      placeholder: "..."
+      render: markdown
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual behavior"
+      description: "What behavior was experienced?"
+      placeholder: "..."
+      render: markdown
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots"
+      description: "Add any screenshots that may help show the issue"
+      placeholder: "..."
+      render: markdown
