@@ -1,15 +1,15 @@
 {
     "folders": [
       {
-        "name": "jeeves",
-        "path": "./jeeves"
+        "name": "devstation",
+        "path": "./devstation"
       },
     ],
     "settings": {
           "intelephense.environment.documentRoot": "${workspaceFolder}",
           "intelephense.environment.includePaths": [
-              "jeeves/app",
-              "jeeves/routes",
+              "devstation/app",
+              "devstation/routes",
           ],
           "intelephense.environment.phpVersion": "8.3.13",
           "phpcs.enable": true,
@@ -29,7 +29,7 @@
           "port": 9003,
           "hostname": "0.0.0.0",
           "pathMappings": {
-            "/var/www/html": "${workspaceRoot:jeeves}"
+            "/var/www/html": "${workspaceRoot:devstation}"
           }
         },
         {
